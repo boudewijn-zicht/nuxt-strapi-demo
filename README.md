@@ -6,8 +6,9 @@
 - Add `.platform/services.yaml`
 - Follow the Strapi sub-steps
 - Follow the Nuxt sub-steps
-- `git init`
-- `git add .`
+- `git init` ... hele riedeltje om het in een github repo te krijgen (misschien niet naar github... weet nog niet)
+- `platform project:set-remote <PLATFORMSH PROJECT CODE>`
+
 
 ## Strapi
 
