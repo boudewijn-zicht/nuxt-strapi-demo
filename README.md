@@ -24,3 +24,11 @@ Loosely based on https://github.com/platformsh-templates/gatsby-strapi/blob/mast
 - `npm run strapi install graphql`
 - Add `public/index.html`
 - Add `.platform.app.yaml`
+
+## Nuxt
+
+- `RWD__DOCKER_ZICHT_NL__NODE_NPM=12-6.x npm init nuxt-app nuxt`
+    - For 'version control' choose 'none' because everything is already in a git repo
+- `cd nuxt`
+- `echo "RWD__DOCKER_ZICHT_NL__NODE_NPM=12-6.x" >> .env`
+- Add `.platform.app.yaml`
