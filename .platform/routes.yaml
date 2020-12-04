@@ -3,9 +3,10 @@
 # Each route describes how an incoming URL is going
 # to be processed by Platform.sh.
 
-"https://www.{default}/uploads/":
-    type: upstream
-    upstream: "strapi:http"
+# Below works, but not on dev machine, so preferring to inject the correct domain instead
+#"https://www.{default}/uploads/":
+#    type: upstream
+#    upstream: "strapi:http"
 
 "https://www.{default}/":
     type: upstream

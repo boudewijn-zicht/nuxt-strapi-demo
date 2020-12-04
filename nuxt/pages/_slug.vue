@@ -1,9 +1,11 @@
 <template>
     <div>
-        <h1 v-if="page.title">{{ page.title }} [{{ page.displayType }}]</h1>
+        <h1 v-if="page.title">{{ page.title }}</h1>
         <p v-if="page.body">{{ page.body }}</p>
-        <img v-if="page.image" :src="page.image.url" :alt="page.image.alt">
+        <img v-if="page.image" :src="`${imageDomain}${page.image.url}`" :alt="page.image.alternativeText">
         <p>Todo: content items are broken atm, see apollo/README.md for progress</p>
+
+        <Dump :value="page"/>
     </div>
 </template>
 
@@ -12,25 +14,40 @@ import gql from 'graphql-tag';
 
 export default {
     apollo: {
-        page: {
+        pages: {
             prefetch: true,
-            query: gql`query page($slug: String!) {
-                page(filter: {slug: {eq: $slug}}) {
-                    displayType
-                    title
-                    body
-                    image {
-                        url(imgixParams:{w: 300, h: 200, fit:facearea})
-                        alt
-                    }
-                }
-            }`,
+            query: gql`
+query {
+  pages(where: { slug: "thuis" }, limit: 1) {
+    title
+    body
+    image {
+      url
+      alternativeText
+    }
+  }
+}`,
             variables() {
                 return {
                     slug: this.$route.params.slug,
                 }
             }
         }
-    }
+    },
+    computed: {
+        page: function () {
+            return this.pages.length ? this.pages[0] : {};
+        },
+    },
+    data: () => ({
+        imageDomain: '//backend.test-t6dnbai-dimevesqs2roi.eu-4.platformsh.site/',
+    }),
 }
 </script>
+
+<style scoped>
+img {
+    width: 200px;
+    height: 100px;
+}
+</style>
