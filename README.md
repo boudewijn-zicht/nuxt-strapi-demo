@@ -36,6 +36,12 @@ Loosely based on https://github.com/platformsh-templates/gatsby-strapi/blob/mast
 
 # Development
 
+## Similar z tools
+
+- `z env:ssh` -> `platform ssh`
+- `z content:db:backup` -> `platform db:dump`
+- `z content:files:pull` -> `platform scp -r remote:public/uploads public`
+
 ## Strapi
 
 Changes made to the 'database structure' are stored in `strapi/api`.  To move these changes to the master branch,
