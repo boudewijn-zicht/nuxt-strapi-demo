@@ -1,4 +1,4 @@
-# Steps taken
+# Initial setup
 
 - On platform.sh created a new empty project
 - `mkdir demo && cd demo`
@@ -33,3 +33,18 @@ Loosely based on https://github.com/platformsh-templates/gatsby-strapi/blob/mast
 - `echo "RWD__DOCKER_ZICHT_NL__NODE_NPM=12-6.x" >> .env`
 - Add `.platform.app.yaml`
 - Add and configure Apollo (details omitted here)
+
+# Development
+
+## Strapi
+
+Changes made to the 'database structure' are stored in `strapi/api`.  To move these changes to the master branch,
+they must be committed to git.  When these changes are made on a platformsh environment, these can be copied back
+locally (to add them to git) using:
+
+- `cd strapi`
+- `platform environment:scp --recursive --app=strapi remote:api .`
+- `platform environment:scp --recursive --app=strapi remote:components .`
+
+TODO: Perhaps the above can also be accomplished using `npm run strapi configuration:dump` and
+`npm run strapi configuration:restore`.
