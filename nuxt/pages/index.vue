@@ -34,7 +34,7 @@ query {
         },
     },
     data: () => ({
-        imageDomain: '//backend.test-t6dnbai-dimevesqs2roi.eu-4.platformsh.site/',
+        imageDomain: '//backend.test-t6dnbai-dimevesqs2roi.eu-4.platformsh.site',
     }),
 }
 </script>
