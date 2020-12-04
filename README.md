@@ -32,3 +32,4 @@ Loosely based on https://github.com/platformsh-templates/gatsby-strapi/blob/mast
 - `cd nuxt`
 - `echo "RWD__DOCKER_ZICHT_NL__NODE_NPM=12-6.x" >> .env`
 - Add `.platform.app.yaml`
+- Add and configure Apollo (details omitted here)
